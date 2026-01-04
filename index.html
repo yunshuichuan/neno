@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark-mode">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无畏契约 | 霓虹 Neon 专属站</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏（滚动变色+锚点定位） -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <h1 class="logo">NEON <span>霓虹</span></h1>
+            <nav class="nav">
+                <a href="#intro" class="nav-link">角色简介</a>
+                <a href="#skills" class="nav-link">核心技能</a>
+                <a href="#skins" class="nav-link">精美皮肤</a>
+                <a href="#play" class="nav-link">玩法亮点</a>
+            </nav>
+            <!-- 暗黑/亮色切换按钮 -->
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄横幅（优化高清图+适配） -->
+    <section class="banner">
+        <div class="banner-mask"></div>
+        <div class="banner-content">
+            <h2>疾如电光 迅如惊雷</h2>
+            <p>无畏契约 决斗者 | 霓虹 · 极速冲锋的电光少女</p>
+        </div>
+    </section>
+
+    <!-- 角色简介 -->
+    <section id="intro" class="section intro">
+        <div class="container">
+            <h3 class="section-title">角色简介</h3>
+            <div class="intro-content">
+                <p>霓虹是无畏契约中的决斗者角色，来自菲律宾马尼拉，依靠体内的电光能量，拥有全游戏顶尖的机动性与突袭能力。</p>
+                <p>她能以极快的速度穿梭战场、突破防线，既能先手开团收割，也能残局拉扯脱身， 电光冲刺与滑铲的组合，让她成为敌方后排的噩梦，是主打速攻、喜欢秀操作玩家的首选英雄。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心技能（悬停高亮+图标动效） -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h3 class="section-title">核心技能</h3>
+            <div class="skills-list">
+                <!-- 技能1：高速冲刺（E） -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-person-running"></i></div>
+                    <div class="skill-info">
+                        <h4>高速冲刺 <span>（E - 免费）</span></h4>
+                        <p>激活后短暂蓄力，随后向前高速冲刺，冲刺中可滑铲变向；蓄力越久，冲刺距离越长，是霓虹核心的位移与突袭手段。</p>
+                    </div>
+                </div>
+                <!-- 技能2：电光飞索（Q） -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="skill-info">
+                        <h4>电光飞索 <span>（Q - 100信用点）</span></h4>
+                        <p>发射一道电光飞索，命中墙体后会将霓虹快速拉向目标点，可快速抢占高点、翻越障碍，搭配冲刺实现无缝位移。</p>
+                    </div>
+                </div>
+                <!-- 技能3：电光弹幕（C） -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-fire"></i></div>
+                    <div class="skill-info">
+                        <h4>电光弹幕 <span>（C - 200信用点）</span></h4>
+                        <p>向前方发射持续的电光弹幕，造成范围伤害与减速，用于清剿角落敌人、封锁走位，团战中能有效限制敌方输出。</p>
+                    </div>
+                </div>
+                <!-- 终极技能：超频暴走（X） -->
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                    <div class="skill-info">
+                        <h4>超频暴走 <span>（X - 7点终极能量）</span></h4>
+                        <p>霓虹进入超频状态，大幅提升射速、移速与换弹速度，击杀或助攻会刷新持续时间，开启后堪称“战场收割机”，轻松撕碎敌方防线。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：精美皮肤（点击放大预览+悬停上浮） -->
+    <section id="skins" class="section skins">
+        <div class="container">
+            <h3 class="section-title">精美皮肤</h3>
+            <div class="skins-list">
+                <div class="skin-card" onclick="openSkinModal(this)">
+                    <img src="https://p.17qq.com/img/f5e8b7137447.jpg" alt="霓虹 基础皮肤">
+                    <p>霓虹 基础皮肤</p>
+                </div>
+                <div class="skin-card" onclick="openSkinModal(this)">
+                    <img src="https://p.17qq.com/img/9a2c6d8e0153.jpg" alt="霓虹 极速狂飙">
+                    <p>霓虹 极速狂飙</p>
+                </div>
+                <div class="skin-card" onclick="openSkinModal(this)">
+                    <img src="https://p.17qq.com/img/4f3a9e2b5678.jpg" alt="霓虹 电光幻刃">
+                    <p>霓虹 电光幻刃</p>
+                </div>
+                <div class="skin-card" onclick="openSkinModal(this)">
+                    <img src="https://p.17qq.com/img/7c8d2f1e4569.jpg" alt="霓虹 赛博灵狐">
+                    <p>霓虹 赛博灵狐</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 玩法亮点 -->
+    <section id="play" class="section play">
+        <div class="container">
+            <h3 class="section-title">玩法亮点</h3>
+            <div class="play-list">
+                <div class="play-item">
+                    <h4>速攻突袭流</h4>
+                    <p>利用E冲刺+Q飞索的组合，开局快速突破敌方前点，抢占关键点位，打敌方一个措手不及，适合进攻方快攻战术。</p>
+                </div>
+                <div class="play-item">
+                    <h4>残局拉扯王</h4>
+                    <p>高机动性让霓虹在残局中优势拉满，可反复进退消耗敌人，残血时借助冲刺快速脱身，等待反打时机。</p>
+                </div>
+                <div class="play-item">
+                    <h4>终极技能收割</h4>
+                    <p>攒满终极技能后，找准团战切入点开启超频暴走，依托高射速快速收割，刷新持续时间后持续压制敌方，轻松带队取胜。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：皮肤预览弹窗（点击关闭+点击空白处关闭） -->
+    <div class="skin-modal" id="skinModal" onclick="closeSkinModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeSkinModal()">&times;</span>
+            <img src="" alt="霓虹皮肤大图" id="modalSkinImg">
+            <p id="modalSkinName"></p>
+        </div>
+    </div>
+
+    <!-- 新增：回到顶部按钮（滚动显示/隐藏） -->
+    <button class="back-to-top" id="backToTop" onclick="backToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- 底部版权 -->
+    <footer class="footer">
+        <p>无畏契约霓虹专属展示站 | 部署于 GitHub Pages © 2026</p>
+    </footer>
+
+    <!-- 交互JS脚本（内嵌无需额外文件，直接生效） -->
+    <script>
+        // 1. 导航栏滚动变色
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // 2. 暗黑/亮色模式切换
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark-mode');
+            html.classList.toggle('light-mode');
+        });
+
+        // 3. 皮肤弹窗：打开+显示大图和名称
+        const skinModal = document.getElementById('skinModal');
+        const modalSkinImg = document.getElementById('modalSkinImg');
+        const modalSkinName = document.getElementById('modalSkinName');
+        function openSkinModal(card) {
+            const imgSrc = card.querySelector('img').src;
+            const skinName = card.querySelector('p').innerText;
+            modalSkinImg.src = imgSrc;
+            modalSkinName.innerText = skinName;
+            skinModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // 弹窗时禁止滚动
+        }
+        // 皮肤弹窗：关闭
+        function closeSkinModal() {
+            skinModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 4. 回到顶部
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        function backToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // 5. 导航锚点平滑滚动
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({behavior: 'smooth'});
+            });
+        });
+    </script>
+</body>
+</html>

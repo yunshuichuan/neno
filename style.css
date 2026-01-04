@@ -1,0 +1,511 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft Yahei", "Arial", sans-serif;
+}
+/* 全局滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #00f0ff;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ff0080;
+}
+::-webkit-scrollbar-track {
+    background-color: #121212;
+}
+
+/* 暗黑/亮色模式全局变量（核心交互） */
+.dark-mode {
+    --bg-main: #0a0a10;
+    --bg-card: rgba(30, 30, 50, 0.7);
+    --bg-section: rgba(15, 15, 25, 0.5);
+    --text-main: #fff;
+    --text-secondary: #cccccc;
+    --accent1: #00f0ff;
+    --accent2: #ff0080;
+    --border: rgba(0, 240, 255, 0.2);
+}
+.light-mode {
+    --bg-main: #f8f9ff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-section: rgba(240, 245, 255, 0.8);
+    --text-main: #121212;
+    --text-secondary: #555555;
+    --accent1: #00a8b4;
+    --accent2: #d6006f;
+    --border: rgba(0, 168, 180, 0.2);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+    transition: all 0.5s ease; /* 模式切换过渡 */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.section {
+    padding: 80px 0;
+    transition: all 0.5s ease;
+}
+.section-title {
+    font-size: 2.2rem;
+    color: var(--accent1);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s ease;
+}
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent2);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: all 0.5s ease;
+}
+
+/* 顶部导航（滚动变色+固定+过渡交互） */
+.header {
+    background-color: rgba(10, 10, 16, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+.header-scrolled {
+    background-color: rgba(10, 10, 16, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8rem;
+    color: var(--accent1);
+    transition: all 0.5s ease;
+}
+.logo span {
+    color: var(--accent2);
+    margin-left: 5px;
+    transition: all 0.5s ease;
+}
+.nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 35px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.nav a:hover {
+    color: var(--accent1);
+}
+.nav a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--accent2);
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+.nav a:hover::after {
+    width: 100%;
+}
+/* 主题切换按钮 */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--accent1);
+    color: var(--accent1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+    background-color: var(--accent1);
+    color: var(--bg-main);
+}
+.theme-toggle .fa-moon {
+    display: none;
+}
+.dark-mode .theme-toggle .fa-sun {
+    display: block;
+}
+.dark-mode .theme-toggle .fa-moon {
+    display: none;
+}
+.light-mode .theme-toggle .fa-sun {
+    display: none;
+}
+.light-mode .theme-toggle .fa-moon {
+    display: block;
+}
+
+/* 英雄横幅（优化高清图+适配） */
+.banner {
+    height: 100vh;
+    background: url(https://p.qqan.com/up/2024-5/17149025217237912.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -70px;
+    padding-top: 70px;
+}
+.banner-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 16, 0.7);
+    transition: all 0.5s ease;
+}
+.light-mode .banner-mask {
+    background-color: rgba(248, 249, 255, 0.5);
+}
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.banner-content h2 {
+    font-size: 3.5rem;
+    color: var(--accent1);
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    transition: all 0.5s ease;
+}
+.banner-content p {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.3);
+    transition: all 0.5s ease;
+}
+
+/* 角色简介 */
+.intro-content {
+    background-color: var(--bg-card);
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.5s ease;
+}
+.intro-content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+    transition: all 0.5s ease;
+}
+.intro-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 核心技能（悬停高亮+浮起+图标动效） */
+.skills {
+    background-color: var(--bg-section);
+}
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.skill-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+    border-left-color: var(--accent2);
+}
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 240, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent1);
+    transition: all 0.4s ease;
+}
+.skill-card:hover .skill-icon {
+    background-color: rgba(255, 0, 128, 0.1);
+    color: var(--accent2);
+    transform: rotate(15deg);
+}
+.skill-info h4 {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    transition: all 0.5s ease;
+}
+.skill-info h4 span {
+    font-size: 1rem;
+    color: var(--accent2);
+    font-weight: normal;
+    transition: all 0.5s ease;
+}
+.skill-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+/* 精美皮肤（点击放大+悬停上浮+阴影动效） */
+.skins {
+    background-color: var(--bg-section);
+}
+.skins-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.skin-card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.skin-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+    border-color: var(--accent1);
+}
+.skin-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+.skin-card:hover img {
+    transform: scale(1.05);
+}
+.skin-card p {
+    padding: 12px 0;
+    text-align: center;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+/* 皮肤预览弹窗样式 */
+.skin-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    background-color: var(--bg-main);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    border: 2px solid var(--accent1);
+}
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+}
+.modal-content p {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    color: var(--accent1);
+    font-weight: bold;
+}
+.modal-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
+    background-color: var(--accent2);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    line-height: 36px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.modal-close:hover {
+    background-color: #d6006f;
+    transform: scale(1.1);
+}
+
+/* 玩法亮点 */
+.play-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.play-item {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 3px solid var(--accent2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+.play-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.2);
+    border-top-color: var(--accent1);
+}
+.play-item h4 {
+    font-size: 1.2rem;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+.play-item:hover h4 {
+    color: var(--accent1);
+}
+.play-item p {
+    color: var(--text-secondary);
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+/* 回到顶部按钮 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent1);
+    color: var(--bg-main);
+    border: none;
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+.back-to-top:hover {
+    background-color: var(--accent2);
+    transform: translateY(-5px);
+}
+
+/* 底部 */
+.footer {
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: all 0.5s ease;
+}
+
+/* 手机端适配（响应式+交互适配） */
+@media (max-width: 768px) {
+    .nav a {
+        margin-left: 15px;
+        font-size: 1rem;
+    }
+    .banner-content h2 {
+        font-size: 2.2rem;
+    }
+    .banner-content p {
+        font-size: 1.1rem;
+    }
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+    .skins-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .skin-card img {
+        height: 160px;
+    }
+    .play-list {
+        grid-template-columns: 1fr;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .skill-card, .play-item {
+        padding: 20px;
+    }
+    .modal-content {
+        width: 90%;
+    }
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+@media (max-width: 480px) {
+    .skins-list {
+        grid-template-columns: 1fr;
+    }
+    .skin-card img {
+        height: 200px;
+    }
+    .header-container {
+        gap: 10px;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+}
