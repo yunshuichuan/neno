@@ -174,7 +174,7 @@ body {
 /* 英雄横幅（优化高清图+适配） */
 .banner {
     height: 100vh;
-    background: url(img) no-repeat center center;
+    background: url("images/1.jpg") no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
@@ -508,4 +508,5 @@ body {
     .logo {
         font-size: 1.5rem;
     }
+
 }
